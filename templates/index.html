@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clocks</title>
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;1,9..40,300&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8" defer>
+        // window.onload = function(){
+        //     window.setInterval(function(){
+        //         let date = new Date();
+        //         let js_hours = date.getHours();
+        //         let js_minutes = date.getMinutes();
+        //         let js_seconds = date.getSeconds();
+        //         document.getElementById('hours').innerHTML = js_hours;
+        //         document.getElementById('minutes').innerHTML = js_minutes;
+        //         document.getElementById('seconds').innerHTML = js_seconds;
+        //     });
+        // }
+    </script>
+     <script type="text/javascript" charSet="utf-8" defer>
+         $(document).ready(function() {
+            let socket = io.connect('http://127.0.0.1:5000');
+            socket.on('connect', function() {
+                socket.emit('time');
+            });
+
+            socket.on('time', function(data) {
+                console.log('Received time data:', data);
+                $('#hours').text(data.hours);
+                $('#minutes').text(data.minutes);
+                $('#seconds').text(data.seconds);
+            });
+        });
+    </script>
+</head>
+<body>
+        <div class="clock">
+            <span class="location">{{location}}</span>
+            <div class="box">
+                <div class="hours item">
+                    <div id="hours"></div>
+                    <span id="h-span">hours</span>
+                </div>
+                <div class="minutes item">
+                    <div id="minutes"></div>
+                    <span id="m-span">minutes</span>
+                </div>                    
+                <div class="seconds item" >
+                    <div id="seconds"></div>
+                    <span id="s-span">seconds</span>
+                </div>                    
+            </div>
+        </div>
+    
+</body>
+</html>

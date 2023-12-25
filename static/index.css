@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    box-sizing: border-box;
+}
+body{
+    margin:0px;
+    background: url('./Gradient 3.png') no-repeat;
+    background-size: cover;
+}
+.background{
+    position: relative;
+}
+.clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+
+    background: linear-gradient(135deg, (rgba(255, 255, 255, 0,1), rgba(255, 255, 255, 0)));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
+
+    box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 36px;
+
+    padding: 5vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+
+    user-focus:none ;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+.item{
+    
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+    width:200px;
+    height: 200px;
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box div span{
+    color: #fff;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+.clock span{
+    color: #fff;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
